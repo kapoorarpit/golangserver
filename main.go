@@ -135,12 +135,12 @@ func findurl(short string) string {
 	return long.LongURL
 }
 
-func deleteendpoint() {
-	for range time.Tick(time.Hour * 4380) {
-		then := time.Now().AddDate(0, -6, 0)
-		//fmt.Println(then)
-		//fmt.Println(time.Now())
-		result, _ := collection.DeleteMany(context.TODO(), bson.M{"date": bson.M{"$lt": then}})
-		fmt.Println(result)
-	}
-}
+//func deleteendpoint() {
+//	for range time.Tick(time.Hour * 4380) {
+//		then := time.Now().AddDate(0, -6, 0)
+//		//fmt.Println(then)
+//		//fmt.Println(time.Now())
+//		result, _ := collection.DeleteMany(context.TODO(), bson.M{"date": bson.M{"$lt": then}})
+//		fmt.Println(result)
+//	}
+//}
