@@ -24,8 +24,7 @@ func GetPort() string {
 	var port = os.Getenv("PORT")
 	// Set a default port if there is nothing in the environment
 	if port == "" {
-		port = "4747"
-		fmt.Println("INFO: No PORT environment variable detected, defaulting to " + port)
+		port = "9000"
 	}
 	return ":" + port
 }
@@ -51,7 +50,7 @@ func main() {
 	router.HandleFunc("/shorten", CreateEndpoint).Methods("POST")
 	router.HandleFunc("/{id}", RedirectEndpoint).Methods("GET")
 	router.HandleFunc("/", Home).Methods("GET")
-	log.Fatal(http.ListenAndServe(os.Getenv(GetPort()), router))
+	log.Fatal(http.ListenAndServe(GetPort(), router))
 }
 
 type URL struct {
